@@ -12,4 +12,4 @@
 
 
 :link:Link:
-- https://insta-clone-liard.vercel.app/
+- https://insta-clone-liard.vercel.app/login
