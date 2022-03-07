@@ -51,6 +51,9 @@ export default function Header({
     }
   }, [user?.username, profileUserId]);
 
+  //Array to set dummy profile account for new accounts, since users can't set the profile account in this clone
+  const existingUsers = ["raphael", "dali", "orwell", "ting"];
+
   return (
     <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
       <div className="container flex justify-center items-center">
@@ -58,7 +61,11 @@ export default function Header({
           <img
             className="rounded-full h-16 w-16 md:h-20 lg:h-40 lg:w-40 flex"
             alt={`${user.username} profile picture`}
-            src={`/images/avatars/${profileUsername}.jpg`}
+            src={
+              existingUsers.includes(profileUsername)
+                ? `/images/avatars/${profileUsername}.jpg`
+                : "/images/avatars/dummyUser.jpg"
+            }
           />
         ) : (
           <img

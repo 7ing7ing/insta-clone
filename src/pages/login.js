@@ -7,8 +7,8 @@ export default function Login() {
   const navigate = useNavigate();
   const { firebase } = useContext(FirebaseContext);
 
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailAddress, setEmailAddress] = useState("tingtingchen@gmail.com");
+  const [password, setPassword] = useState("qwerty12345");
 
   const [error, setError] = useState("");
   const isInvalid = password === "" || emailAddress === "";
@@ -51,6 +51,7 @@ export default function Login() {
             <input
               aria-label="Enter your email address"
               type="text"
+              defaultValue="tingtingchen@gmail.com"
               placeholder="Email address"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setEmailAddress(target.value)}
@@ -58,6 +59,7 @@ export default function Login() {
             <input
               aria-label="Enter your password"
               type="password"
+              defaultValue="qwerty12345"
               placeholder="Password"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setPassword(target.value)}

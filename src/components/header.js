@@ -11,6 +11,9 @@ export default function Header() {
   const { firebase } = useContext(FirebaseContext);
   const navigate = useNavigate();
 
+  //Array to set dummy profile account for new accounts, since users can't set the profile account in this clone
+  const existingUsers = ["raphael", "dali", "orwell", "ting"];
+
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8">
       <div className="container mx-auto max-w-screen-lg h-full">
@@ -79,7 +82,11 @@ export default function Header() {
                   <Link to={`/p/${user?.username}`}>
                     <img
                       className="rounded-full h-9 w-8 flex"
-                      src={`/images/avatars/${user.username}.jpg`}
+                      src={
+                        existingUsers.includes(user.username)
+                          ? `/images/avatars/${user.username}.jpg`
+                          : "/images/avatars/dummyUser.jpg"
+                      }
                       alt={`${user?.username} profile picture`}
                     />
                   </Link>
